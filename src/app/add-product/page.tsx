@@ -23,7 +23,7 @@ export default function AddProduct() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('fullstackproject-production.up.railway.app/api/products', {
+      await axios.post('https://fullstackproject-production.up.railway.app/api/products', {
         ...formData,
         price: parseFloat(formData.price)
       });
