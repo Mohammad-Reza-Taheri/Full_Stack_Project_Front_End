@@ -15,7 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleDelete = async (id: string) => {
     setLoading(true)
     try {
-      const response = await axios.get(`https://fullstackproject-production.up.railway.app/api/products/${id}`);
+      const response = await axios.delete(`https://fullstackproject-production.up.railway.app/api/products/${id}`);
       // const response = await axios.delete(`http://localhost:5000/api/products/${id}`);
       console.log("response in ProductCard: " + JSON.stringify(response))
       // router.push('/add-product');
