@@ -12,7 +12,7 @@ export default function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get('fullstackproject-production.up.railway.app/api/products');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);
