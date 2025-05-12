@@ -15,6 +15,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
+        <div className="bg-sky-500 p-4">
+            sky
+          </div>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">فروشگاه اینترنتی</h1>
         
@@ -26,10 +29,11 @@ export default function Home() {
           </Link>
           
           <Link href="/products">
-            <span className="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-center font-medium transition duration-200">
+            <span style={{ backgroundColor: '#10b981' }} className="bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-center font-medium transition duration-200">
               مشاهده محصولات
             </span>
           </Link>
+        
         </div>
       </div>
     </div>
