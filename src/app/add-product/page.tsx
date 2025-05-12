@@ -24,6 +24,7 @@ export default function AddProduct() {
     e.preventDefault();
     try {
       await axios.post('https://fullstackproject-production.up.railway.app/api/products', {
+      // await axios.post('http://localhost:5000/api/products', {
         ...formData,
         price: parseFloat(formData.price)
       });
