@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../../components/ProductCard';
 // import { IProduct } from '../../backend/src/types/product.d';
-import {IProduct} from '../../../../backend/src/types/product'
+import {IProduct} from '../../types/products'
 
 export default function Products() {
   const [products, setProducts] = useState<IProduct[]>([]);

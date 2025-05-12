@@ -1,4 +1,4 @@
-import { IProduct } from '../../../backend/src/types/product.d';
+import { IProduct } from '../types/products';
 
 interface ProductCardProps {
   product: IProduct;
