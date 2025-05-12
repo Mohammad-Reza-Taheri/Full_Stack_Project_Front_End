@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 
   return (
-    <div style={{ backgroundColor: "aqua" }} className=" rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+    <div  className=" rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
       {/* {product.imageUrl && (
         <img 
           src={product.imageUrl} 
@@ -43,10 +43,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       )} */}
       {/* <div className="w-full h-48 object-cover"></div> */}
 
-      <div className="p-4 bg-amber-200">
+      <div className="p-4">
         {/* <Link href={`http://localhost:5000/api/products/${product.id}`}>delete</Link> */}
         <button
-          className='bg-red-500 p-4 w-full hover:text-white'
+          className='bg-red-500 mb-3 text-white text-xl font-semibold p-4 w-full hover:text-black rounded-md'
           disabled={loading}
           style={{ backgroundColor: "red" }}
           onClick={() => handleDelete(product.id)}>{loading ? (<span>...</span>) : (<span>delete</span>)}</button>
