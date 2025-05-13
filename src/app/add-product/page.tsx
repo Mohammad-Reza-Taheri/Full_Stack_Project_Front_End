@@ -35,30 +35,30 @@ export default function AddProduct() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">افزودن محصول جدید</h1>
+    <div className="min-h-screen bg-[#f3f4f6] p-8">
+      <div className="max-w-2xl mx-auto bg-[#ffffff] p-6 rounded-lg shadow-md">
+        <h1 className="text-2xl font-bold text-[#1e2939] mb-6">افزودن محصول جدید</h1>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-700 mb-1">نام محصول</label>
+            <label className="block text-[#364153] mb-1">نام محصول</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-[#d1d5dc] rounded focus:outline-none focus:ring-2 focus:ring-[#155dfc]"
               required
             />
           </div>
           
           <div>
-            <label className="block text-gray-700 mb-1">توضیحات</label>
+            <label className="block text-[#364153] mb-1">توضیحات</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-[#d1d5dc] rounded focus:outline-none focus:ring-2 focus:ring-[#155dfc]"
               rows={3}
               required
             />
@@ -89,7 +89,7 @@ export default function AddProduct() {
           
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition duration-200"
+            className="w-full bg-[#155dfc] hover:bg-blue-600 text-[#ffffff] py-2 px-4 rounded transition duration-200"
           >
             افزودن محصول
           </button>

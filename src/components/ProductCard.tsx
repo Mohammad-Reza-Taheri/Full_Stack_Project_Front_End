@@ -46,13 +46,13 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="p-4">
         {/* <Link href={`http://localhost:5000/api/products/${product.id}`}>delete</Link> */}
         <button
-          className='bg-red-500 !important mb-3 text-white text-xl font-semibold p-4 w-full hover:text-black rounded-md'
+          className='bg-[#fb2c36] mb-3 text-[#ffffff] text-xl font-semibold p-4 w-full hover:text-[#000] rounded-md'
           disabled={loading}
           // style={{ backgroundColor: "red" }}
           onClick={() => handleDelete(product.id)}>{loading ? (<span>...</span>) : (<span>delete</span>)}</button>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h2>
-        <p className="text-gray-600 mb-4">{product.description}</p>
-        <p className="text-lg font-bold text-blue-600">{product.price.toLocaleString()} تومان</p>
+        <h2 className="text-xl font-semibold text-[#1e2939] mb-2">{product.name}</h2>
+        <p className="text-[#4a5565] mb-4">{product.description}</p>
+        <p className="text-lg font-bold text-[#155dfc]">{product.price.toLocaleString()} تومان</p>
       </div>
     </div>
   );

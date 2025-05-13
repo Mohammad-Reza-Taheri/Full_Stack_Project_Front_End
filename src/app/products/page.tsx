@@ -27,19 +27,19 @@ export default function Products() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100 p-8 flex justify-center items-center">
-        <p className="text-gray-700">در حال بارگذاری...</p>
+      <div className="min-h-screen bg-[#f3f4f6] p-8 flex justify-center items-center">
+        <p className="text-[#364153]">در حال بارگذاری...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-[#f3f4f6] p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">محصولات</h1>
+        <h1 className="text-3xl font-bold text-[#1e2939] mb-8">محصولات</h1>
         
         {products.length === 0 ? (
-          <p className="text-gray-700">هیچ محصولی وجود ندارد.</p>
+          <p className="text-[#364153]">هیچ محصولی وجود ندارد.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map(product => (

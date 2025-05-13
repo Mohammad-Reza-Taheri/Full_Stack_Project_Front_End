@@ -31,7 +31,7 @@ const BackButton = () => {
 
   return (
     <div className="w-full  flex justify-end h-14" >
-      <Link href={backPath} className=" flex justify-center items-center font-semibold text-2xl w-20 border-l border-gray-300  hover:bg-gray-200  transition-all">
+      <Link href={backPath} className=" flex justify-center items-center font-semibold text-2xl w-20 border-l border-[#d1d5dc]  hover:bg-[#e5e7eb]  transition-all">
         <MingcuteArrowLeftLine/>
       </Link>
     </div>
