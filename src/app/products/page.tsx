@@ -5,6 +5,7 @@ import ProductCard from '../../components/ProductCard';
 // import { IProduct } from '../../backend/src/types/product.d';
 import {IProduct} from '../../types/products'
 
+
 export default function Products() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,9 +35,10 @@ export default function Products() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] p-8">
+    <div className="min-h-max bg-[#f3f4f6] p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-[#1e2939] mb-8">محصولات</h1>
+
         
         {products.length === 0 ? (
           <p className="text-[#364153]">هیچ محصولی وجود ندارد.</p>

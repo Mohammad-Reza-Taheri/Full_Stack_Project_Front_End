@@ -14,7 +14,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f3f4f6] p-8">
+    <div style={{minHeight:'100dvh'}} className=" bg-[#f3f4f6] p-8">
         {/* <div className="bg-sky-500 p-4">
             sky
           </div> */}

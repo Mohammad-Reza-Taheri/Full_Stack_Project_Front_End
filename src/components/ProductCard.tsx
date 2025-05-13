@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 
   return (
-    <div  className=" rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
+    <div  className="bg-[#ffffff] rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
       {/* {product.imageUrl && (
         <img 
           src={product.imageUrl} 
