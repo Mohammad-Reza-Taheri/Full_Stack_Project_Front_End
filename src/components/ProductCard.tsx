@@ -46,7 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="p-4">
         {/* <Link href={`http://localhost:5000/api/products/${product.id}`}>delete</Link> */}
         <button
-          className='bg-red-500 mb-3 text-white text-xl font-semibold p-4 w-full hover:text-black rounded-md'
+          className='bg-red-500 !important mb-3 text-white text-xl font-semibold p-4 w-full hover:text-black rounded-md'
           disabled={loading}
           style={{ backgroundColor: "red" }}
           onClick={() => handleDelete(product.id)}>{loading ? (<span>...</span>) : (<span>delete</span>)}</button>

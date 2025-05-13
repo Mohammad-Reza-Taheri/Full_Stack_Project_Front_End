@@ -24,7 +24,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link href="/add-product">
-            <span className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg text-center font-medium transition duration-200">
+            <span className="bg-[#155dfc] hover:bg-blue-600 text-white py-3 px-6 rounded-lg text-center font-medium transition duration-200">
               افزودن محصول جدید
             </span>
           </Link>

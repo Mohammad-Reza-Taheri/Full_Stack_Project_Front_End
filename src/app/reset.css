@@ -1,54 +1,54 @@
 /* /reset.css */
 /* Reset margins and padding */
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-}
+} */
 
 /* Remove list styles */
-ol,
+/* ol,
 ul {
   list-style: none;
-}
+} */
 
 /* Remove default link styling */
-a {
+/* a {
   text-decoration: none;
   color: inherit;
-}
+} */
 
 /* Remove button defaults */
-button {
+/* button {
   background: none;
   border: none;
   cursor: pointer;
   font-family: inherit;
-}
+} */
 
 /* Improve media defaults */
-img,
+/* img,
 picture,
 video,
 canvas,
 svg {
   display: block;
   max-width: 100%;
-}
+} */
 
 /* Remove form element defaults */
-input,
+/* input,
 textarea,
 select {
   font-family: inherit;
   font-size: inherit;
-}
+} */
 
 /* Remove animations for reduced motion */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -57,4 +57,4 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
+} */
