@@ -48,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <button
           className='bg-red-500 !important mb-3 text-white text-xl font-semibold p-4 w-full hover:text-black rounded-md'
           disabled={loading}
-          style={{ backgroundColor: "red" }}
+          // style={{ backgroundColor: "red" }}
           onClick={() => handleDelete(product.id)}>{loading ? (<span>...</span>) : (<span>delete</span>)}</button>
         <h2 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h2>
         <p className="text-gray-600 mb-4">{product.description}</p>
