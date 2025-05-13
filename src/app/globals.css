@@ -1,7 +1,15 @@
 @import './reset.css';
 @import "tailwindcss";
 
+body{
+    /* for PCs */
+    min-block-size: 100vh;
 
+    /* for mobiles */
+    min-block-size: 100dvh;
+
+    /* background-color:; */
+}
 
 
 /* :root {
