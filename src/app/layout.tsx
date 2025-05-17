@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import BackButton from '../components/BackButton';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -14,8 +13,8 @@ import BackButton from '../components/BackButton';
 // });
 
 export const metadata: Metadata = {
-  title: "Full Stack Shop",
-  description: "full stack shop with using next.js and express",
+  title: "Anki bro",
+  description: "Anki bro with using next.js and express",
 };
 
 export default function RootLayout({
@@ -29,7 +28,7 @@ export default function RootLayout({
         {children}
       </body> */}
       <body >
-        <BackButton/>
+        {/* <BackButton/> */}
         {children}
       </body>
     </html>
