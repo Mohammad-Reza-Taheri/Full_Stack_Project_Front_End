@@ -103,31 +103,33 @@
 
 'use client'
 import { useState } from "react";
+import Category from "./pages/Category";
 
 export default function TabsPage() {
   const [activeTab, setActiveTab] = useState("tab2");
 
   return (
-    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800  p-2">
+    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800  pb-2 ">
 
 
       {/* Content */}
-      <div className="p-4 bg-slate-900 w-full h-full rounded shadow-md text-center text-white" dir="rtl">
+      <div className="p-4  bg-slate-950 w-full h-full rounded shadow-md text-center text-white overflow-scroll" >
         {activeTab === "tab1" ? (
           <div>tab 1</div>
         ) : activeTab === "tab2" ? (
-          <div>tab 2</div>
+          <Category/>
         ) : (
           <div>tab 3</div>
         )}
       </div>
 
       {/* Tabs */}
-      <div className="relative flex  w-full justify-center ">
+      <div className="w-full px-2 flex justify-center">
+        <div className="relative flex  max-w-md w-full justify-center mt-2  ">
 
         {/* Underline Positioning Without Animation */}
         <div
-          className={`absolute bottom-0 h-full rounded-b-2xl  bg-slate-900 w-2/6 transition-all duration-100 ease-in-out`}
+          className={`absolute  bottom-0 h-full rounded-full  bg-slate-950 w-4/12 transition-all duration-200 ease-in-out`}
           // style={{
           //     transform: activeTab === "tab1" ? "translateX(-66%)" :
           //               activeTab === "tab2" ? "translateX(0%)" :
@@ -142,27 +144,28 @@ export default function TabsPage() {
         ></div>
 
         {/* Tabs Buttons */}
-        <div className="flex justify-between h-14 w-full  ">
+        <div className=" flex justify-between h-14 w-full  rounded-full bg-slate-900 ">
           <button
-            className={`z-10 bg-inherit px-3 py-2 font-medium ${activeTab== 'tab1'?'text-white font-semibold text-xl':'text-gray-400' }   w-1/3 h-full transition-all duration-200 `}
+            className={`z-10 bg-transparent font-medium ${activeTab== 'tab1'?'text-white font-semibold text-xl':'text-gray-400' }   w-1/3 h-full transition-all duration-200 ease-in-out`}
             onClick={() => setActiveTab("tab1")}
           >
-            اخیر
+            Verlauf
           </button>
           <button
-            className={`z-10 bg-inherit px-3 py-2 font-medium ${activeTab== 'tab2'?'text-white font-semibold text-xl':'text-gray-400' } text-black w-1/3 h-full transition-all duration-200 `}
+            className={`z-10 bg-transparent  font-medium ${activeTab== 'tab2'?'text-white font-semibold text-xl':'text-gray-400' } text-black w-1/3 h-full transition-all duration-200 ease-in-out`}
             onClick={() => setActiveTab("tab2")}
           >
-            جاری
+            Haupt
           </button>
           <button
-            className={`z-10 bg-inherit px-3 py-2 font-medium ${activeTab== 'tab3'?'text-white font-semibold text-xl':'text-gray-400' } text-black w-1/3 h-full transition-all duration-200 `}
+            className={`z-10 bg-transparent font-medium ${activeTab== 'tab3'?'text-white font-medium text-[17px]':'text-gray-400' } text-black w-1/3 h-full transition-all duration-200 ease-in-out`}
             onClick={() => setActiveTab("tab3")}
           >
-            آینده
+            Wiederholung
           </button>
         </div>
 
+      </div>
       </div>
 
     </div>

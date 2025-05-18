@@ -8,6 +8,10 @@ body{
     /* for mobiles */
     min-block-size: 100dvh;
     background:#0f172b;
+  }
+  /* for hiding scroll bar */
+  ::-webkit-scrollbar {
+  display: none;
 }
 
 
