@@ -109,7 +109,7 @@ export default function TabsPage() {
   const [activeTab, setActiveTab] = useState("tab2");
 
   return (
-    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800  pb-2 ">
+    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800 ">
 
 
       {/* Content */}

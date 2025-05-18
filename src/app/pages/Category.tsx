@@ -27,7 +27,7 @@ const Category = () => {
     // console.log("categories :"+data[0].cat_name)
 
     return (
-        <div className='h-full min-h-max px-2 pt-2  '>
+        <div className='h-full min-h-max px-2 py-2  '>
             <span className='text-2xl font-semibold'>Decks</span>
             {/* {data.map((cat:ICategory) => {
 
