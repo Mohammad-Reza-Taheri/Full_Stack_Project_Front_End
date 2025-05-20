@@ -23,7 +23,7 @@ const AddCardPage = () => {
         mutationFn: async (data) => {
             try {
                 // const response = await fetch(`http://localhost:5000/api/${category_id}/cards`, {
-                const response = await fetch(`http://fullstackproject-production.up.railway.app/api/${category_id}/cards`, {
+                const response = await fetch(`https://fullstackproject-production.up.railway.app/api/${category_id}/cards`, {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),

@@ -25,7 +25,7 @@ const CategoryPage = () => {
         queryFn: async () => {
             // const response = await fetch('http://localhost:8000/categories', { cache: "no-cache" });
             // const response = await fetch(`http://localhost:5000/api/${category_id}/cards`);
-            const response = await fetch(`http://fullstackproject-production.up.railway.app/api/${category_id}/cards`);
+            const response = await fetch(`https://fullstackproject-production.up.railway.app/api/${category_id}/cards`);
             
             if (!response.ok) {
                 throw new Error('Failed to fetch categories');

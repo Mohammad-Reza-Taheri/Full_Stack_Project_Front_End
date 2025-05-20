@@ -22,7 +22,7 @@ const AddCategoryPage = () => {
             try {
                 
                 // const response = await fetch('http://localhost:5000/api/categories', {
-                const response = await fetch('http://fullstackproject-production.up.railway.app/api/categories', {
+                const response = await fetch('https://fullstackproject-production.up.railway.app/api/categories', {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),

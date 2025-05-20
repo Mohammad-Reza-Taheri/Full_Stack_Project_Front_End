@@ -9,7 +9,7 @@ import Link from 'next/link';
 const fetchCategories = async () => {
     // const response = await fetch('http://localhost:8000/categories', { cache: "no-cache" });
     // const response = await fetch('http://localhost:5000/api/categories');
-    const response = await fetch('http://fullstackproject-production.up.railway.app/api/categories');
+    const response = await fetch('https://fullstackproject-production.up.railway.app/api/categories');
     
     if (!response.ok) {
         throw new Error('Failed to fetch categories');
