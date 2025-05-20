@@ -104,22 +104,25 @@
 'use client'
 import { useState } from "react";
 import Category from "./pages/Category";
+import History from "./pages/History";
+import Review from "./pages/Review";
 
 export default function TabsPage() {
   const [activeTab, setActiveTab] = useState("tab2");
 
   return (
-    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800 ">
+    <div className="h-screen min-h-svh max-h-svh w-full flex flex-col items-center bg-slate-800 pb-4">
+      
 
 
       {/* Content */}
-      <div className="p-4  bg-slate-950 w-full h-full rounded shadow-md text-center text-white overflow-scroll" >
+      <div className="gradient_1 p-4  w-full h-full rounded-b-2xl shadow-md text-center text-white overflow-scroll" >
         {activeTab === "tab1" ? (
-          <div>tab 1</div>
+          <History/>
         ) : activeTab === "tab2" ? (
           <Category/>
         ) : (
-          <div>tab 3</div>
+          <Review/>
         )}
       </div>
 
