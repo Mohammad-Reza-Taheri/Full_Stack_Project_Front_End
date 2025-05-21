@@ -5,9 +5,11 @@ import CardPreview from '@/components/CardPreview';
 import MingcuteAddLine from '@/icons/MingcuteAddLine';
 import { ICard } from '@/types/type'
 import { useQuery } from '@tanstack/react-query';
+
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
+
 // import { QueryClient, useMutation} from '@tanstack/react-query'
 
 
@@ -24,13 +26,25 @@ const CategoryPage = () => {
         queryKey: ['cards'],
         queryFn: async () => {
             // const response = await fetch('http://localhost:8000/categories', { cache: "no-cache" });
-            // const response = await fetch(`http://localhost:5000/api/${category_id}/cards`);
-            const response = await fetch(`https://fullstackproject-production.up.railway.app/api/${category_id}/cards`);
+            //  const response = await fetch(`http://localhost:5000/api/${category_id}/cards`);
+             const response = await fetch(`https://ankibro.liara.run/api/${category_id}/cards`);
+             
+            // const response= await fetch(`https://fullstackproject-production.up.railway.app/api/${category_id}/cards`, { cache: "no-cache" });
+        //    return axios(`https://fullstackproject-production.up.railway.app/api/${category_id}/cards`);
+        //    return client(`/api/${category_id}/cards`)
+
+            // try{
+
+            //     return getCards(category_id)
+                
+            // }catch(err){
+
+            //     throw new Error('Failed to fetch categories',err);
+            // }
             
-            if (!response.ok) {
-                throw new Error('Failed to fetch categories');
-            }
-            return response.json();
+              if (!response.ok) {
+              }
+              return response.json();
         },
     });
 

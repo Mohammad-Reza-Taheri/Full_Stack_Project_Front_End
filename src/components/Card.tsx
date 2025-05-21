@@ -59,6 +59,7 @@ const Card = ({ cards }: ICC) => {
     router.push('/')
   }
   const handlePreviousCard = () => {
+    setTurnCard(false)
     setProgress(((counter - 1) * 100) / (cards.length))
     if (counter > 0) {
       setCounter(counter - 1)
