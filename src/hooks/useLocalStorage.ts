@@ -26,13 +26,21 @@
 
 
 //fixed version
+'use client'
+
 import { useEffect, useState } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
     const [value, setValue] = useState<T>(() => {
         try {
-            const storedValue = localStorage.getItem(key);
+            // if (!key) return initialValue
+
+
+            const storedValue = localStorage.getItem(key) || null;
             return storedValue !== null ? JSON.parse(storedValue) as T : initialValue;
+
+
+
         } catch (error) {
             console.error("Failed to parse localStorage item:", error);
             return initialValue;

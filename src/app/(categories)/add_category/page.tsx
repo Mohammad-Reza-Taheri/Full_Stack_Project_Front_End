@@ -1,13 +1,16 @@
 'use client'
+export const dynamic = 'force-dynamic';
 import BackButton from '@/components/BackButton';
+import { postCategory } from '@/services/api';
 import { IAddCategory } from '@/types/type';
-import { QueryClient, useMutation } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import { useQueryClient, useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 
 const AddCategoryPage = () => {
-    const [disable,setDisable]=useState(false);
+    const router = useRouter();
+    const queryClient = useQueryClient()
     const {
         register,
         handleSubmit,
@@ -15,23 +18,24 @@ const AddCategoryPage = () => {
         formState: { errors },
     } = useForm<IAddCategory>();
 
-    const queryClient = new QueryClient()
+
 
     const mutation = useMutation<unknown, Error, IAddCategory>({
         mutationFn: async (data) => {
             try {
-                
+                return postCategory(data)
+
                 // const response = await fetch('http://localhost:5000/api/categories', {
                 // const response = await fetch('https://fullstackproject-production.up.railway.app/api/categories', {
                 // const response = await fetch('http://localhost:3000/api/categories', {
-                const response = await fetch('https://ankibro.liara.run/api/categories', {
-                    
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                });
+                // const response = await fetch('https://ankibro.liara.run/api/categories', {
+
+                //     method: "POST",
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data),
+                // });
                 // console.log('this is response in add_category: '+JSON.stringify(response))
-                return response.json();
+                // return response.json();
             } catch (err) {
                 console.log(err)
             }
@@ -40,19 +44,17 @@ const AddCategoryPage = () => {
             // Invalidate and refetch
             queryClient.invalidateQueries({ queryKey: ['categories'] })
             reset();
-            setDisable(false);
+            router.push('/')
         },
     })
     const onSubmit = (data: IAddCategory) => {
         mutation.mutate(data)
-  
-
 
     }
 
     return (
         <div className='h-screen min-h-svh max-h-svh text-white '>
-            <BackButton/>
+            <BackButton />
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-end h-1/2 w-full '>
                 <label htmlFor='cat_name' className='text-gray-300 text-3xl mb-4 mx-6'>Enter a name for your category</label>
                 {/* <input {...register('firstName')} /> */}
@@ -62,7 +64,8 @@ const AddCategoryPage = () => {
                 {errors.cat_name && <p className='text-red-600 text-lg ml-4'>Last name is required.</p>}
                 {/* <input {...register('age', { pattern: /\d+/ })} />
             {errors.age && <p>Please enter number for age.</p>} */}
-                <input type="submit" className='bg-slate-800 text-white text-xl font-semibold p-4 m-4 mt-10 rounded-xl' disabled={disable} value={'save'}/>
+                <input type="submit" className='bg-slate-800 text-white text-xl font-semibold p-4 m-4 mt-10 rounded-xl'
+                    disabled={mutation.isPending} value={mutation.isPending ? 'saving' : 'save'} />
             </form>
         </div>
     );
@@ -70,3 +73,14 @@ const AddCategoryPage = () => {
 }
 
 export default AddCategoryPage
+
+
+// import React from 'react'
+
+// const AddCategoryPage = () => {
+//   return (
+//     <div>AddCategoryPage</div>
+//   )
+// }
+
+// export default AddCategoryPage

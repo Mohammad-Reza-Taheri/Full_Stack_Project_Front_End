@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 // import { ArrowLeft } from "lucide-react"; // یا استفاده از آیکون دلخواه
 
 const BackButton = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
   const segments = pathname.split("/").filter(Boolean);
   
   // if (segments.length <= 0) return null; // فقط در صفحات فرزند نمایش داده شود
@@ -31,7 +31,7 @@ const BackButton = () => {
 
   return (
     // <div className="w-full  flex justify-end h-14  bg-[#1d293d]" >
-      <Link href={backPath} className="   p-4 flex justify-center items-center font-semibold text-2xl w-20 border-l border-[#000000]  hover:bg-[#e5e7eb]  transition-all">
+      <Link href={backPath} className=" py-4 m-2 flex justify-center items-center font-semibold text-2xl w-15 rounded-full text-white  hover:bg-slate-700   transition-all">
         <MingcuteArrowLeftLine/>
       </Link>
     // </div>
@@ -40,3 +40,5 @@ const BackButton = () => {
 };
 
 export default BackButton;
+
+// bg-[#e5e7ebd5]
