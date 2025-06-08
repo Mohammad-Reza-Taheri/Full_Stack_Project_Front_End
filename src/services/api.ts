@@ -10,8 +10,9 @@ import Cookies from "js-cookie";
 
 
 const apiClient = axios.create({
-  // baseURL: "http://localhost:5000/"
-  baseURL: "https://ankibro-back.liara.run/"
+  // baseURL: "http://localhost:5000/",
+  baseURL: "https://ankibro-back.liara.run/",
+   headers: { "Content-Type": "application/json" }
 });
 
 
