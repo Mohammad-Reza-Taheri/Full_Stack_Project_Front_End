@@ -132,7 +132,7 @@ const CardPreview = ({ title, card_id }: ICardPreview) => {
                 {/* menu */}
                 <div className={`absolute flex justify-around items-center bottom-0 bg-gray-800 w-full h-20 rounded-b-xl  ${isSelect ? 'translate-y-0' : "translate-y-20"} transition-all`}>
 
-                    <Link href={`/${category_id}/cards/edit_card/${card_id}`} className='text-2xl pl-3 text-sky-600 '><MingcutePencilLine /></Link>
+                    <Link href={`/category/${category_id}/cards/edit_card/${card_id}`} className='text-2xl pl-3 text-sky-600 '><MingcutePencilLine /></Link>
                     <div className='w-[1px] h-1/2 bg-white'></div>
                     <button onClick={() => handleDelete(card_id)} className='text-2xl pr-3 text-red-600'><MaterialSymbolsDeleteOutline /></button>
                 </div>
