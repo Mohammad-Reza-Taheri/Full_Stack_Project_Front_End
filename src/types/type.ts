@@ -1,4 +1,5 @@
 import { AxiosResponse } from "axios";
+import { Dispatch, SetStateAction } from "react";
 // import { ParamValue } from "next/dist/server/request/params";
 
 export interface ICategory {
@@ -62,6 +63,7 @@ export interface ICardPreview {
 export interface ICC {
   cards: ICard[]
   category_id: number
+  setHidden:Dispatch<SetStateAction<boolean>>;
 }
 
 export type TCardStatus = 'wrong' | 'hard' | 'good' | 'easy';

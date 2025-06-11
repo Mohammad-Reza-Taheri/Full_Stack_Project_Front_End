@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 
 
 const apiClient = axios.create({
-  // baseURL: "http://localhost:5000/",
+  // baseURL: "http://localhost:3000/",
   baseURL: "https://ankibro-back.liara.run/",
   //  headers: { "Content-Type": "application/json" }
 });
@@ -40,9 +40,9 @@ export const getAuthToken = () => {
 
 
 //////////////////////////////////////cards//////////////////////////////////////////
-export const fetchCards = async (category_id: ParamValue): Promise<ICard[]> => {
+export const fetchCards = async (category_id: ParamValue,limit:number): Promise<ICard[]> => {
   const token = getAuthToken();
-  const response = await apiClient.get<ICard[]>(`/api/cards/${category_id}/`, {
+  const response = await apiClient.get<ICard[]>(`/api/cards/${category_id}?limit=${limit}`, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": token,

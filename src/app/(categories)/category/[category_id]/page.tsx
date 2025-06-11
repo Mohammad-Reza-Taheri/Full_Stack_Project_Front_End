@@ -24,11 +24,13 @@ const CategoryPage = () => {
     const category_id = params?.category_id as string;
     const [hidden, setHidden] = useState(true);
     const [isContinue, setIsContinue] = useState(false);
+    const [activeTab, setActiveTab] = useState("tab2");
+    const [limit, setLimit] = useState(50);
 
     const { data: cards, isLoading, error } = useQuery<ICard[]>({
-        queryKey: ['cards', category_id],
+        queryKey: ['cards', category_id,limit],
         queryFn: async () => {
-            return fetchCards(category_id);
+            return fetchCards(category_id,limit);
             // const response = await fetch('http://localhost:8000/categories', { cache: "no-cache" });
             //  const response = await fetch(`http://localhost:5000/api/${category_id}/cards`);
             //  const response = await fetch(`https://ankibro.liara.run/api/${category_id}/cards`);
@@ -64,7 +66,7 @@ const CategoryPage = () => {
                 setIsContinue(true)
             }
         }
-    }, [setIsContinue, category_id])
+    }, [setIsContinue, category_id, hidden])
 
 
 
@@ -81,7 +83,7 @@ const CategoryPage = () => {
     }
 
     return (
-        <div className='text-white h-screen min-h-svh max-h-svh  '>
+        <div className='relative text-white h-screen min-h-svh max-h-svh'>
             {hidden ? (
                 <div className='relative '>
                     <div className='fixed z-20 items-center top-0 right-0 flex justify-between w-full backdrop-blur-md'>
@@ -109,6 +111,8 @@ const CategoryPage = () => {
                                 return <CardPreview key={card.card_id} card_id={card.card_id} title={card.title} />
                             })}
 
+
+
                         </div>) : (
                             <div className='flex flex-col  items-center py-20 px-4 '>
                                 <div>
@@ -127,7 +131,7 @@ const CategoryPage = () => {
             ) : (
                 <>
                     {cards &&
-                        <Card cards={cards} category_id={Number(category_id)} />
+                        <Card cards={cards} category_id={Number(category_id)} setHidden={setHidden} />
                     }
                 </>
             )}
@@ -135,9 +139,49 @@ const CategoryPage = () => {
             {isOpen && (
                 <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={() => setIsOpen(false)}></div>
             )}
-            <UploadCSV category_id={Number(category_id)}/>
+            <UploadCSV category_id={Number(category_id)} />
 
-        </div>
+            <div className='fixed bottom-5 flex justify-center items-center  w-full h-14'>
+
+                <div
+                    className={`absolute  bottom-1 h-12 rounded   bg-[#262c2c] w-[75px] transition-all duration-200 ease-in-out`}
+                    style={{
+                        transform: activeTab === "tab1" ? "translateX(-158%)" :
+                            activeTab === "tab2" ? "translateX(-53%)" :
+                                activeTab === "tab3" ? "translateX(53%)" :
+                                    "translateX(158%)"
+                    }}
+                ></div>
+                <div className=" flex justify-between h-full w-80  rounded-md  bg-[#464c4c] border-2 border-white">
+                    <button
+                        className={`z-10 bg-transparent font-medium  ${activeTab == 'tab1' ? 'text-white font-semibold text-xl' : 'text-gray-300'}   w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab1"); setLimit(20)}}
+                    >
+                        20
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent  font-medium border-l ${activeTab == 'tab2' ? 'text-white font-semibold text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab2"); setLimit(50)}}
+                    >
+                        50
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab3' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab3"); setLimit(100)}}
+                    >
+                        100
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab4' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab4"); setLimit(0)}}
+                    >
+                        ALL
+                    </button>
+                </div>
+
+            </div>
+
+        </div >
 
     )
 }
