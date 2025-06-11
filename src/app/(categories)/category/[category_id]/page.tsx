@@ -141,7 +141,8 @@ const CategoryPage = () => {
             )}
             <UploadCSV category_id={Number(category_id)} />
 
-            <div className='fixed bottom-5 flex justify-center items-center  w-full h-14'>
+            {hidden && (
+                <div className='fixed bottom-5 flex justify-center items-center  w-full h-14'>
 
                 <div
                     className={`absolute  bottom-1 h-12 rounded   bg-[#262c2c] w-[75px] transition-all duration-200 ease-in-out`}
@@ -178,8 +179,8 @@ const CategoryPage = () => {
                         ALL
                     </button>
                 </div>
-
             </div>
+            )}
 
         </div >
 
