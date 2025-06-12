@@ -73,7 +73,7 @@ const CategoryPage = () => {
 
 
 
-    // if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className='flex justify-center items-center text-gray-400 text-2xl '>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
 
