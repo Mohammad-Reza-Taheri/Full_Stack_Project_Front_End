@@ -73,8 +73,9 @@ const CategoryPage = () => {
 
 
 
-    if (isLoading) return <div>Loading...</div>;
+    // if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
+    
 
 
 
@@ -106,10 +107,51 @@ const CategoryPage = () => {
                             <button className='gradient_2 text-black text-xl rounded-xl font-bold mb-4 p-4 col-span-2'
                                 //  onClick={handleStart} >start review</button>
                                 // onClick={handleStart} >{localCounter >0 ? <>continue...</>:<>start review</>}</button>
-                                onClick={handleStart} >{isContinue ? <>continue...</> : <>start review</>}</button>
+                                onClick={handleStart} disabled={isLoading}>{isContinue ? <>continue...</> : <>start review</>}</button>
                             {cards?.map((card) => {
                                 return <CardPreview key={card.card_id} card_id={card.card_id} title={card.title} />
                             })}
+
+                            <div className='fixed bottom-5 flex justify-center items-center  w-full h-12'>
+
+                <div
+                    className={`absolute  bottom-1 h-10 rounded   bg-[#262c2c] w-[80px] transition-all duration-200 ease-in-out`}
+                    style={{
+                        transform: activeTab === "tab1" ? "translateX(-148%)" :
+                            activeTab === "tab2" ? "translateX(-48%)" :
+                                activeTab === "tab3" ? "translateX(48%)" :
+                                    "translateX(148%)"
+                    }}
+                ></div>
+                <div className=" flex justify-between h-full w-80  rounded-md  bg-[#464c4c] border-2 border-white">
+                    <button
+                        className={`z-10 bg-transparent font-medium  ${activeTab == 'tab1' ? 'text-white font-semibold text-xl' : 'text-gray-300'}   w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab1"); setLimit(20)}}
+                    >
+                        20
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent  font-medium border-l ${activeTab == 'tab2' ? 'text-white font-semibold text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab2"); setLimit(50)}}
+                    >
+                        50
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab3' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab3"); setLimit(100)}}
+                    >
+                        100
+                    </button>
+                    <button
+                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab4' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
+                        onClick={() => {setActiveTab("tab4"); setLimit(0)}}
+                    >
+                        ALL
+                    </button>
+                </div>
+            </div>
+
+
 
 
 
@@ -140,47 +182,6 @@ const CategoryPage = () => {
                 <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={() => setIsOpen(false)}></div>
             )}
             <UploadCSV category_id={Number(category_id)} />
-
-            {hidden && (
-                <div className='fixed bottom-5 flex justify-center items-center  w-full h-14'>
-
-                <div
-                    className={`absolute  bottom-1 h-12 rounded   bg-[#262c2c] w-[75px] transition-all duration-200 ease-in-out`}
-                    style={{
-                        transform: activeTab === "tab1" ? "translateX(-158%)" :
-                            activeTab === "tab2" ? "translateX(-53%)" :
-                                activeTab === "tab3" ? "translateX(53%)" :
-                                    "translateX(158%)"
-                    }}
-                ></div>
-                <div className=" flex justify-between h-full w-80  rounded-md  bg-[#464c4c] border-2 border-white">
-                    <button
-                        className={`z-10 bg-transparent font-medium  ${activeTab == 'tab1' ? 'text-white font-semibold text-xl' : 'text-gray-300'}   w-20 h-full transition-all duration-200 ease-in-out`}
-                        onClick={() => {setActiveTab("tab1"); setLimit(20)}}
-                    >
-                        20
-                    </button>
-                    <button
-                        className={`z-10 bg-transparent  font-medium border-l ${activeTab == 'tab2' ? 'text-white font-semibold text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
-                        onClick={() => {setActiveTab("tab2"); setLimit(50)}}
-                    >
-                        50
-                    </button>
-                    <button
-                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab3' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
-                        onClick={() => {setActiveTab("tab3"); setLimit(100)}}
-                    >
-                        100
-                    </button>
-                    <button
-                        className={`z-10 bg-transparent font-medium border-l  ${activeTab == 'tab4' ? 'text-white font-medium text-xl' : 'text-gray-300'} text-black w-20 h-full transition-all duration-200 ease-in-out`}
-                        onClick={() => {setActiveTab("tab4"); setLimit(0)}}
-                    >
-                        ALL
-                    </button>
-                </div>
-            </div>
-            )}
 
         </div >
 
